@@ -1,5 +1,5 @@
 async function fetchNews(countryCode) {
-    const apiKey = 'YOUR_NEWSAPI_KEY'; // Replace with your NewsAPI key
+    const apiKey = 'NEWSAPI_KEY'; // Replace with your NewsAPI key
     const url = `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${apiKey}`;
 
     try {
