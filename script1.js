@@ -1,5 +1,6 @@
 //Get News from API
 async function fetchNews(countryCode) {
+    console.log("hi 1");
     const fs = require('fs');
 const path = require('path');
 
@@ -31,6 +32,7 @@ lines.forEach(line => {
 
 // Function to update news
 async function updateNews(countryCode) {
+    console.log("hi 2"); 
     const newsContainer = document.getElementById('news');
     newsContainer.innerHTML = ''; 
 
