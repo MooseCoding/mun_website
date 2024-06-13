@@ -1,6 +1,23 @@
+const fs = require('fs');
+const path = require('path');
+
+// Read the secrets file
+const secretsPath = path.join(__dirname, 'secrets');
+const secrets = fs.readFileSync(secretsPath, 'utf-8');
+
+const lines = secrets.split('\n');
+let NEWSAPI_KEY = '';
+
+lines.forEach(line => {
+    const [key, value] = line.split('=');
+    if (key === 'NEWSAPI_KEY') {
+        NEWSAPI_KEY = value.trim();
+    }
+});
+
+//Get News from API
 async function fetchNews(countryCode) {
-    const apiKey = 'NEWSAPI_KEY'; // Replace with your NewsAPI key
-    const url = `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${NEWSAPI_KEY}`;
 
     try {
         const response = await fetch(url);
@@ -15,7 +32,7 @@ async function fetchNews(countryCode) {
 // Function to update news
 async function updateNews(countryCode) {
     const newsContainer = document.getElementById('news-container');
-    newsContainer.innerHTML = ''; // Clear existing news
+    newsContainer.innerHTML = ''; 
 
     const articles = await fetchNews(countryCode);
     if (articles.length > 0) {
@@ -31,6 +48,6 @@ async function updateNews(countryCode) {
 
 // Event listener for country selection
 document.getElementById('country_button').addEventListener('click', function() {
-    const selectedCountry = this.value.toLowerCase(); // API might use lowercase country codes
+    const selectedCountry = this.value.toLowerCase(); 
     updateNews(selectedCountry);
 });
