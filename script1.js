@@ -1,3 +1,14 @@
+document.getElementById('country').addEventListener('click', function() {
+
+    console.log("uh oh");
+    const selectedCountry = this.value.toLowerCase(); 
+    updateNews(selectedCountry);
+});
+
+document.getElementById('log').addEventListener('click', function() {
+    console.log('hi');
+});
+
 //Get News from API
 async function fetchNews(countryCode) {
     const fs = require('fs');
