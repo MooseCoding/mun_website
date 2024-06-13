@@ -101,13 +101,20 @@
             <option value="SJM">Svalbard and Jan Mayen (Norway)</option>
         </optgroup>
       </select>
-      <button id="country_button">Submit</button>
+      <button id="country">Submit</button>
       <button id="log">Log</button>
       <div id="news">
       </div>
       <script>
         document.getElementById('log').addEventListener('click', function() {
     console.log('hi');
+});
+// Event listener for country selection
+document.getElementById('country').addEventListener('click', function() {
+
+    console.log("uh oh");
+    const selectedCountry = this.value.toLowerCase(); 
+    updateNews(selectedCountry);
 });
       </script>
       <script src=""script1.js></script>

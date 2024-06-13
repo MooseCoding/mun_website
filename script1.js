@@ -47,9 +47,3 @@ async function updateNews(countryCode) {
     }
 }
 
-// Event listener for country selection
-document.getElementById('country_button').addEventListener('click', function() {
-    const selectedCountry = this.value.toLowerCase(); 
-    console.log("uh oh");
-    updateNews(selectedCountry);
-});
