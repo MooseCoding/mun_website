@@ -31,7 +31,7 @@ lines.forEach(line => {
 
 // Function to update news
 async function updateNews(countryCode) {
-    const newsContainer = document.getElementById('news-container');
+    const newsContainer = document.getElementById('news');
     newsContainer.innerHTML = ''; 
 
     const articles = await fetchNews(countryCode);
