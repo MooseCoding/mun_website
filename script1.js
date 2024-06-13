@@ -1,6 +1,5 @@
 //Get News from API
 async function fetchNews(countryCode) {
-    console.log("hi 1");
     const fs = require('fs');
 const path = require('path');
 
@@ -51,5 +50,6 @@ async function updateNews(countryCode) {
 // Event listener for country selection
 document.getElementById('country_button').addEventListener('click', function() {
     const selectedCountry = this.value.toLowerCase(); 
+    console.log("uh oh");
     updateNews(selectedCountry);
 });
