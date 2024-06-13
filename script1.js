@@ -1,4 +1,6 @@
-const fs = require('fs');
+//Get News from API
+async function fetchNews(countryCode) {
+    const fs = require('fs');
 const path = require('path');
 
 // Read the secrets file
@@ -15,8 +17,6 @@ lines.forEach(line => {
     }
 });
 
-//Get News from API
-async function fetchNews(countryCode) {
     const url = `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${NEWSAPI_KEY}`;
 
     try {
